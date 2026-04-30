@@ -376,7 +376,3 @@ a {
 .curriculum-btn:hover .arrow {
   color: var(--cpp-gold);
 }
-
-.overlay {
-  display: none;
-}
