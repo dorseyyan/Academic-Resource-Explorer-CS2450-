@@ -11,14 +11,8 @@
   --poly-gradient: linear-gradient(#FFB81C, #A4D65E); /*pairs: black, cpp green*/
 
   /*other*/
-  --shadow: 0 10px 30px rgba(0, 80, 48, 0.05);
-  --page-bg: #f7f6f2;
-  --card-bg: #ffffff;
-  --card-alt-bg: #fdfcf9;
   --line: #ece8e1;
   --line-soft: #f1eee8;
-  --track: #e6e4df;
-  --text-soft: #5e5e5e;
 }
 
 .header {
@@ -41,7 +35,7 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: var(--page-bg);
+  background: #f7f6f2;
   color: var(--black);
 }
 
@@ -182,7 +176,7 @@ a {
   width: 100%;            
   justify-content: space-between;
   align-items: center;
-  background: var(--card-bg);
+  background: var(--white);
   border: 1px solid var(--line-soft);
   border-radius: 8px;
   padding: 18px 20px;
@@ -208,7 +202,7 @@ a {
 }
 
 .info-bubble {
-  background: var(--card-alt-bg);
+  background: #fdfcf9;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 14px 16px;
@@ -216,7 +210,7 @@ a {
 
 .bubble-label {
   font-size: 0.78rem;
-  color: var(--text-soft);
+  color: #5e5e5e;
   margin-bottom: 6px;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -241,7 +235,7 @@ a {
 
 .status-bubble {
   width: 100%;
-  background: var(--card-alt-bg);
+  background: #fdfcf9;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 20px;
@@ -299,7 +293,7 @@ a {
 .progress-bar {
   width: 100%;
   height: 16px;
-  background: var(--track);
+  background: #e6e4df;
   border-radius: 999px;
   overflow: hidden;
   margin-bottom: 16px;
