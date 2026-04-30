@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <header class="header">
+  <h1>Degree Progress Report</h1>
+  </header>
+  <!--preconnect speeds up loading of Google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!--loads Inter font-->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="website">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="menu-wrap" id="menuWrap">
+          <!--Toggle menu currently collapsed-->
+          <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#" class="dropdown-item">
+              <span class="dropdown-icon">🏠︎</span>
+              <span>Home</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span class="dropdown-icon">🔎︎</span>
+              <span>Search</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span class="dropdown-icon">ጸ</span>
+              <span>Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="report-shell">
+        <section class="profile-card">
+          <div class="profile-left">
+            <div class="info-bubble">
+              <div class="bubble-label">Program & Standing</div>
+              <div class="bubble-value">Undergraduate, Senior Standing</div>
+            </div>
+            <div class="info-bubble">
+              <div class="bubble-label">Overall GPA</div>
+              <div class="bubble-value">4.00</div>
+            </div>
+            <div class="info-bubble">
+              <div class="bubble-label">Major</div>
+              <div class="bubble-value">Computer Science</div>
+            </div>
+            <div class="info-bubble">
+              <div class="bubble-label">Minor(s)</div>
+              <div class="bubble-value">N/A</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="profile-right">
+            <div class="status-bubble">
+              <div class="status-label">Grad Status</div>
+              <div class="status-value">Not applicable</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="progress-grid">
+          <article class="progress-card">
+            <div class="section-header">
+              <h2>Major Course Reqs</h2>
+              <span class="percent-pill">78%</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 78%;"></div>
+            </div>
+
+            <div class="progress-details">
+              <span class="detail-pill">14 / 18 courses completed</span>
+              <span class="detail-pill">18 units left</span>
+            </div>
+          </article>
+
+          <article class="progress-card">
+            <div class="section-header">
+              <h2>GE Reqs</h2>
+              <span class="percent-pill">93%</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 93%;"></div>
+            </div>
+
+            <div class="progress-details">
+              <span class="detail-pill">14 / 15 courses completed</span>
+              <span class="detail-pill">3 units left</span>
+            </div>
+          </article>
+        </section>
+
+        <a href="https://www.cpp.edu/academic-programs/academic-advising/tools/sheets-roadmaps/index.shtml" target="_blank" rel="noopener noreferrer" class="catalog-btn">
+          <span>Curriculum Sheets & Roadmaps</span>
+          <span class="arrow">›</span>
+        </a>
+
+        <a href="https://catalog.cpp.edu/" target="_blank" rel="noopener noreferrer" class="catalog-btn">
+          <span>University Catalog</span>
+          <span class="arrow">›</span>
+        </a>
+      </section>
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
