@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Degree Progress Report</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="app">
+      <header class="siteHeader">
+        <div class="headerInner">
+          <div class="brand" aria-label="Site">
+            <strong>Degree Planner</strong>
+            <span>Progress & checklist</span>
+          </div>
+          <nav class="topnav" aria-label="Primary">
+            <a href="./index.html" data-nav="dashboard">Report</a>
+            <a href="./checklist.html" data-nav="checklist">Checklist</a>
+            <a href="./index.html" aria-disabled="true" title="Stub link">Profile</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="container content" data-page="dashboard">
+        <h1>Degree Progress Report</h1>
+
+        <div class="twoCols">
+          <section class="card" aria-label="General stats">
+            <div class="cardTitle">
+              <h2>Student summary</h2>
+              <span class="pill" id="eligibleBadge">—</span>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <div>
+                  <div class="k">Program</div>
+                  <div class="v" id="programVal">—</div>
+                </div>
+              </div>
+              <div class="stat right">
+                <div>
+                  <div class="k">Grad status</div>
+                  <div class="v" id="gradStatusVal">—</div>
+                </div>
+              </div>
+              <div class="stat">
+                <div>
+                  <div class="k">Major</div>
+                  <div class="v" id="majorVal">—</div>
+                </div>
+              </div>
+              <div class="stat">
+                <div>
+                  <div class="k">Minor(s)</div>
+                  <div class="v" id="minorVal">—</div>
+                </div>
+              </div>
+              <div class="stat">
+                <div>
+                  <div class="k">Overall GPA</div>
+                  <div class="v" id="gpaVal">—</div>
+                </div>
+              </div>
+            </div>
+
+            <span class="srOnly" id="eligibleAnnounce" aria-live="polite"></span>
+          </section>
+
+          <div class="stack" aria-label="Progress panels">
+            <section class="card" aria-label="Major requirements">
+              <div class="cardTitle">
+                <h2>Major Course Reqs</h2>
+                <small>Updates from checklist</small>
+              </div>
+
+              <div class="progressRow" aria-label="Major requirements progress">
+                <div class="bar" aria-hidden="true">
+                  <span id="majorBarFill"></span>
+                </div>
+                <div class="pct" id="majorPct">0%</div>
+              </div>
+              <div class="meta" aria-label="Major progress details">
+                <span id="majorCompleted">—</span>
+                <span id="majorUnitsLeft">—</span>
+              </div>
+            </section>
+
+            <section class="card" aria-label="GE requirements">
+              <div class="cardTitle">
+                <h2>GE Reqs</h2>
+                <small>Sample data</small>
+              </div>
+
+              <div class="progressRow" aria-label="GE requirements progress">
+                <div class="bar" aria-hidden="true">
+                  <span id="geBarFill"></span>
+                </div>
+                <div class="pct" id="gePct">0%</div>
+              </div>
+              <div class="meta" aria-label="GE progress details">
+                <span id="geCompleted">—</span>
+                <span id="geUnitsLeft">—</span>
+              </div>
+            </section>
+
+            <div class="cta">
+              <a class="btn" href="./checklist.html" aria-label="Open checklist">
+                <span>Go to checklist</span>
+                <span aria-hidden="true">›</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
