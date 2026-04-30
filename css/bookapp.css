@@ -1,0 +1,48 @@
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+label {
+  width: 120px; /* keeps everything aligned */
+  font-weight: bold;
+}
+
+select {
+  padding: 8px;
+  width: 250px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+label {
+  width: 120px;
+  font-weight: bold;
+}
+
+input[type="date"] {
+  padding: 8px;
+  width: 250px;
+}
+
+.timeframe {
+  display: flex;
+  gap: 20px;
+}
+
+.timeframe div {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeframe input {
+  padding: 8px;
+  width: 150px;
+}
