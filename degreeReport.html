@@ -3,27 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <header class="header">
-  <h1>Degree Progress Report</h1>
-  </header>
-  <!--preconnect speeds up loading of Google fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!--loads Inter font-->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="header">
+    <div class="header-left">
+      <img src="logo.png" alt="Cal Poly Pomona Logo" class="logo">
+      <span class="header-subtitle">Cal Poly Pomona</span>
+    </div>
+    <h1 class="header-title">Degree Progress Report</h1>
+    <div class="header-right"></div>
+  </header>
+
   <div class="website">
     <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header">
+      <div class="sidebar-inner">
         <div class="menu-wrap" id="menuWrap">
-          <!--Toggle menu currently collapsed-->
           <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
           </button>
+
           <div class="dropdown-menu" id="dropdownMenu">
             <a href="#" class="dropdown-item">
               <span class="dropdown-icon">🏠︎</span>
