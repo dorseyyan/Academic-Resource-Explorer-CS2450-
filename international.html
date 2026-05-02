@@ -7,14 +7,19 @@
 </head>
 <body>
 
+  <!-- Header: logo left, title center, home button right -->
   <header>
-    <h1>🌿 Cal Poly Pomona — International Student Services</h1>
+    <div class="header-left">
+      <img src="logo.png" alt="Cal Poly Pomona logo" class="logo">
+      <span class="header-subtitle">Cal Poly Pomona</span>
+    </div>
+    <div class="header-title">International Student Services</div>
+    <div class="header-right">
+      <a href="#" class="home-btn">🏠 Home</a>
+    </div>
   </header>
 
   <main>
-
-    <p><a href="index.html">← Back to Student Portal</a></p>
-
 
     <!-- Advisors -->
     <section>
@@ -22,16 +27,16 @@
       <p>Your advisor depends on the first letter of your last name.</p>
 
       <h3>Lisa Nguyen — Last names A to L</h3>
-      <p>Email: <a href="mailto:lisalnguyen@cpp.edu">lisalnguyen@cpp.edu</a></p>
+      <p>Email: <a href="mailto:lisalnguyen@cpp.edu" style="color:#005030; font-weight:600;">lisalnguyen@cpp.edu</a></p>
 
       <h3>Junko Takada — Last names M to Z</h3>
-      <p>Email: <a href="mailto:jtakada@cpp.edu">jtakada@cpp.edu</a></p>
+      <p>Email: <a href="mailto:jtakada@cpp.edu" style="color:#005030; font-weight:600;">jtakada@cpp.edu</a></p>
 
-      <p>📞 International Center: (909) 869-3000 — Building 1</p>
+      <p>📞 International Center: (909) 869-3000 — Building 15</p>
     </section>
 
 
-    <!-- Visa types -->
+    <!-- Visa Types -->
     <section>
       <h2>Common Visa Types</h2>
       <ul>
@@ -62,9 +67,9 @@
       <input type="number" id="gpa" min="0" max="4.0" step="0.01" placeholder="e.g. 3.50">
 
       <p>Are you a full-time student? (12 or more units)</p>
-      <input type="radio" name="fulltime" value="yes"> Yes
-      <br>
+      <input type="radio" name="fulltime" value="yes"> Yes &nbsp;&nbsp;
       <input type="radio" name="fulltime" value="no"> No
+      <br><br>
 
       <p>Your visa type:</p>
       <select id="visa">
@@ -85,7 +90,6 @@
       <p>Your last name:</p>
       <input type="text" id="lastname" placeholder="Used to find your advisor">
 
-      <br><br>
       <button onclick="checkCPT()">Check My Eligibility</button>
 
       <div id="result"></div>
@@ -108,20 +112,16 @@
       var fulltimeBtn = document.querySelector('input[name="fulltime"]:checked');
       var fulltime    = fulltimeBtn ? fulltimeBtn.value : "";
 
-      // Make sure everything is filled in
-      if (isNaN(gpa))     { alert("Please enter your GPA.");                    return; }
-      if (fulltime == "") { alert("Please answer the full-time question.");      return; }
-      if (visa == "")     { alert("Please select your visa type.");              return; }
-      if (lastname == "") { alert("Please enter your last name.");               return; }
+      if (isNaN(gpa))     { alert("Please enter your GPA.");                return; }
+      if (fulltime == "") { alert("Please answer the full-time question.");  return; }
+      if (visa == "")     { alert("Please select your visa type.");          return; }
+      if (lastname == "") { alert("Please enter your last name.");           return; }
 
-      // Check the requirements
       var gpaOK      = gpa >= 2.0;
       var fulltimeOK = fulltime == "yes";
       var visaOK     = visa == "f1";
 
-      // Find the right advisor based on last name
       var letter = lastname.charAt(0).toUpperCase();
-
       var advisorName;
       var advisorEmail;
 
@@ -133,7 +133,6 @@
         advisorEmail = "jtakada@cpp.edu";
       }
 
-      // Show the result
       var result = document.getElementById("result");
 
       if (gpaOK && fulltimeOK && visaOK) {
@@ -142,7 +141,7 @@
           "<h3>✅ You qualify for CPT!</h3>" +
           "<p>You meet all the requirements. Contact your advisor to apply.</p>" +
           "<p>Your advisor: <strong>" + advisorName + "</strong><br>" +
-          "Email: <a href='mailto:" + advisorEmail + "'>" + advisorEmail + "</a></p>";
+          "Email: <a href='mailto:" + advisorEmail + "' style='color:#005030; font-weight:600;'>" + advisorEmail + "</a></p>";
 
         result.className = "pass";
 
@@ -160,7 +159,7 @@
           reasons +
           "<p>Contact your advisor for help.<br>" +
           "<strong>" + advisorName + "</strong><br>" +
-          "Email: <a href='mailto:" + advisorEmail + "'>" + advisorEmail + "</a></p>";
+          "Email: <a href='mailto:" + advisorEmail + "' style='color:#8b1a1a; font-weight:600;'>" + advisorEmail + "</a></p>";
 
         result.className = "fail";
       }
