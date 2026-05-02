@@ -1,90 +1,273 @@
-/* style.css */
+/* ── Same color variables as the team's style ── */
+:root {
+  --cpp-green: #005030;
+  --cpp-gold: #FFB81C;
+  --avocado: #A4D65E;
+  --eggshell: #F2EEE8;
+  --white: #FFFFFF;
+  --black: #2d2d2d;
+  --line: #ece8e1;
+  --line-soft: #f1eee8;
+  --header-height: 64px;
+}
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f0;
+/* ── Reset (same as friend's file) ── */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
+/* ── Body ── */
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: #f7f6f2;
+  color: var(--black);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Header — same gradient as friend's ── */
 header {
-  background-color: #154734;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  background: linear-gradient(90deg, #00843d 0%, #014865 100%);
   color: white;
-  padding: 20px;
-  text-align: center;
+  padding: 0 20px;
+  height: var(--header-height);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
+/* Logo + "Cal Poly Pomona" on the left */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 40px;
+}
+
+.header-subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Home button in the top right corner */
+.home-btn {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.home-btn:hover {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+/* Page title in the center */
+.header-title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* ── Main content area ── */
 main {
-  width: 600px;
-  margin: 30px auto;
+  width: 680px;
+  margin: 32px auto;
+  padding: 0 16px;
 }
 
-footer {
-  background-color: #154734;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
+/* Back link */
+main > p {
+  margin-bottom: 20px;
 }
 
+main > p a {
+  color: var(--cpp-green);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+main > p a:hover {
+  color: var(--cpp-gold);
+}
+
+/* ── Section cards — same look as friend's cards ── */
+section {
+  background: var(--white);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+/* ── Headings ── */
 h2 {
-  color: #154734;
-  border-bottom: 2px solid #c4952a;
+  color: #1f6b47;
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin-bottom: 14px;
   padding-bottom: 6px;
+  border-bottom: 2px solid var(--cpp-gold);
 }
 
 h3 {
-  color: #154734;
+  color: var(--cpp-green);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
-section {
-  background-color: white;
-  border: 1px solid #cccccc;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 30px;
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
 }
 
-input {
-  padding: 10px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  font-size: 15px;
+/* ── Advisor names ── */
+section h3 {
+  margin-top: 14px;
+}
+
+/* ── Visa list ── */
+ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+li {
+  font-size: 0.95rem;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--line-soft);
+  line-height: 1.5;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/* ── Form inputs ── */
+input[type="number"],
+input[type="text"] {
   width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: "Inter", Arial, sans-serif;
+  background: #fdfcf9;
+  color: var(--black);
   margin-top: 4px;
+  margin-bottom: 14px;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--cpp-green);
 }
 
 select {
-  padding: 10px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  font-size: 15px;
   width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: "Inter", Arial, sans-serif;
+  background: #fdfcf9;
+  color: var(--black);
   margin-top: 4px;
+  margin-bottom: 14px;
 }
 
+select:focus {
+  outline: none;
+  border-color: var(--cpp-green);
+}
+
+/* Radio buttons */
+input[type="radio"] {
+  accent-color: var(--cpp-green);
+  width: auto;
+  margin-bottom: 0;
+}
+
+/* ── Submit button — same style as friend's search button ── */
 button {
-  background-color: #154734;
+  background-color: var(--cpp-green);
   color: white;
-  padding: 12px 20px;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Inter", Arial, sans-serif;
   cursor: pointer;
+  width: 100%;
+  margin-top: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Result boxes */
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 80, 48, 0.2);
+}
+
+/* ── Result boxes ── */
 .pass {
-  background-color: #e8f5e9;
-  border: 2px solid #154734;
+  background: #f6fdf9;
+  border: 1px solid #a8d5b5;
   border-radius: 8px;
   padding: 20px;
   margin-top: 20px;
+  color: var(--cpp-green);
+}
+
+.pass h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
 }
 
 .fail {
-  background-color: #fdecea;
-  border: 2px solid #b91c1c;
+  background: #fff8f8;
+  border: 1px solid #f5b8b8;
   border-radius: 8px;
   padding: 20px;
   margin-top: 20px;
+  color: #8b1a1a;
+}
+
+.fail h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+/* ── Footer ── */
+footer {
+  background: linear-gradient(90deg, #00843d 0%, #014865 100%);
+  color: white;
+  text-align: center;
+  padding: 16px;
+  margin-top: 40px;
+  font-size: 0.9rem;
 }
