@@ -1,4 +1,4 @@
-/* ── Same color variables as the team's style ── */
+/* ── Color variables (same as team) ── */
 :root {
   --cpp-green: #005030;
   --cpp-gold: #FFB81C;
@@ -11,14 +11,13 @@
   --header-height: 64px;
 }
 
-/* ── Reset (same as friend's file) ── */
+/* ── Reset ── */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ── Body ── */
 body {
   font-family: "Inter", Arial, sans-serif;
   background: #f7f6f2;
@@ -30,8 +29,10 @@ a {
   color: inherit;
 }
 
-/* ── Header — same gradient as friend's ── */
-header {
+/* ════════════════════════════
+   HEADER
+════════════════════════════ */
+.header {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -44,7 +45,6 @@ header {
   z-index: 1000;
 }
 
-/* Logo + "Cal Poly Pomona" on the left */
 .header-left {
   display: flex;
   align-items: center;
@@ -60,13 +60,19 @@ header {
   font-weight: 600;
 }
 
+.header-title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
 .header-right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-/* Home button in the top right corner */
+/* Home button */
 .home-btn {
   background-color: rgba(255, 255, 255, 0.15);
   color: white;
@@ -82,36 +88,148 @@ header {
   background-color: rgba(255, 255, 255, 0.28);
 }
 
-/* Page title in the center */
-.header-title {
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 700;
+/* ════════════════════════════
+   PAGE LAYOUT
+════════════════════════════ */
+.website {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  position: relative;
 }
 
-/* ── Main content area ── */
-main {
-  width: 680px;
-  margin: 32px auto;
-  padding: 0 16px;
+/* ════════════════════════════
+   SIDEBAR
+════════════════════════════ */
+.sidebar {
+  width: 250px;
+  background: var(--eggshell);
+  border-right: 1px solid var(--line);
+  padding: 0 15px;
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  align-self: flex-start;
 }
 
-/* Back link */
-main > p {
-  margin-bottom: 20px;
+.sidebar-inner {
+  position: relative;
+  height: 100%;
 }
 
-main > p a {
-  color: var(--cpp-green);
+/* ── Hamburger button ── */
+.menu-wrap {
+  position: sticky;
+  top: 10px;
+  display: inline-block;
+  z-index: 50;
+}
+
+.menu-btn {
+  width: 52px;
+  height: 52px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.menu-btn:active {
+  transform: scale(0.98);
+}
+
+/* The 3 lines */
+.menu-btn span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  background: var(--black);
+  border-radius: 999px;
+  transition: transform 0.28s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Animate into X when open */
+.menu-wrap.open .menu-btn span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-wrap.open .menu-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-wrap.open .menu-btn span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ── Dropdown menu ── */
+.dropdown-menu {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 220px;
+  background: #f7f7f6;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+  padding: 8px;
+  /* hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.22s ease, transform 0.24s ease;
+}
+
+.menu-wrap.open .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+  font-size: 1rem;
   font-weight: 600;
-  font-size: 0.95rem;
+  color: var(--black);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.18s ease;
 }
 
-main > p a:hover {
-  color: var(--cpp-gold);
+.dropdown-item:hover {
+  background: rgba(52, 51, 51, 0.071);
+  border-radius: 16px;
+  color: var(--cpp-green);
+  transform: translateX(2px);
 }
 
-/* ── Section cards — same look as friend's cards ── */
+.dropdown-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #f4f1eb;
+  color: var(--cpp-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════
+   MAIN CONTENT
+════════════════════════════ */
+.main {
+  flex: 1;
+  padding: 32px 36px;
+}
+
 section {
   background: var(--white);
   border: 1px solid var(--line-soft);
@@ -121,7 +239,6 @@ section {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
-/* ── Headings ── */
 h2 {
   color: #1f6b47;
   font-size: 1.18rem;
@@ -135,6 +252,7 @@ h3 {
   color: var(--cpp-green);
   font-size: 1rem;
   font-weight: 700;
+  margin-top: 14px;
   margin-bottom: 4px;
 }
 
@@ -144,12 +262,6 @@ p {
   margin-bottom: 10px;
 }
 
-/* ── Advisor names ── */
-section h3 {
-  margin-top: 14px;
-}
-
-/* ── Visa list ── */
 ul {
   padding-left: 18px;
   margin-top: 8px;
@@ -205,14 +317,11 @@ select:focus {
   border-color: var(--cpp-green);
 }
 
-/* Radio buttons */
 input[type="radio"] {
   accent-color: var(--cpp-green);
-  width: auto;
-  margin-bottom: 0;
 }
 
-/* ── Submit button — same style as friend's search button ── */
+/* ── Submit button ── */
 button {
   background-color: var(--cpp-green);
   color: white;
@@ -246,6 +355,7 @@ button:hover {
 .pass h3 {
   font-size: 1.05rem;
   margin-bottom: 10px;
+  margin-top: 0;
 }
 
 .fail {
@@ -260,14 +370,16 @@ button:hover {
 .fail h3 {
   font-size: 1.05rem;
   margin-bottom: 10px;
+  margin-top: 0;
 }
 
-/* ── Footer ── */
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
 footer {
   background: linear-gradient(90deg, #00843d 0%, #014865 100%);
   color: white;
   text-align: center;
   padding: 16px;
-  margin-top: 40px;
   font-size: 0.9rem;
 }
