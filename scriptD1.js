@@ -583,6 +583,23 @@ function renderChecklist() {
 // INIT
 // =====================
 
+// =====================
+// ACCORDION TOGGLE
+// =====================
+
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+  btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+
+  if (isOpen) {
+    body.hidden = true;
+  } else {
+    body.hidden = false;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderChecklist();
 });
