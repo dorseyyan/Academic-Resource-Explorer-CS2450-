@@ -1,0 +1,247 @@
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+  font-family:Arial, Helvetica, sans-serif;
+  color: blue;
+  text-align: left;
+  
+}
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #083a06;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #33631a;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.search-area {
+  display: flex;
+  justify-content: flex-end;
+  margin: 15px 30px 0 0;
+  gap: 8px;
+}
+
+.search-area input {
+  padding: 8px;
+  width: 220px;
+}
+
+.search-area button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 0 20px;
+}
+
+.logo-text {
+  color: #ffcc00;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0 20px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 40px;
+}
+
+.search-area {
+  display: flex;
+  gap: 8px;
+}
+
+.back-btn {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.back-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  background:#083a06;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+
+  .container {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+
+  }
+
+  .box {
+    flex: 1;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .box button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .box button:hover {
+    background-color: #333;
+  }
+
+  .hours-table {
+  margin: 0 auto;
+  text-align: left;
+}
+
+.hours-table td {
+  padding: 4px 20px;
+}
+
+.hours-table td:first-child {
+  text-align: right;
+}
+
+.hours-table td:last-child {
+  text-align: left; 
+}
+
+
+.content button {
+  margin-top: auto;
+  align-self: center; 
+  width: auto;
+}
+
+.box img {
+  display: block;
+  margin: 0 auto;
+}
