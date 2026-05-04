@@ -22,7 +22,7 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-inner">
         <div class="menu-wrap" id="menuWrap">
-          <button class="menu-btn" id="menuBtn">
+          <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -41,7 +41,6 @@
     <main class="main">
       <section class="report-shell">
 
-        <!-- PROFILE (UNCHANGED) -->
         <section class="profile-card">
           <div class="profile-left">
             <div class="info-bubble">
@@ -72,7 +71,6 @@
           </div>
         </section>
 
-        <!-- PROGRESS (UNCHANGED) -->
         <section class="progress-grid">
           <article class="progress-card">
             <div class="section-header">
@@ -107,91 +105,89 @@
           </article>
         </section>
 
-        <!-- BUTTONS (UNCHANGED) -->
         <section class="curriculum-catalog-grid">
-          <a href="https://www.cpp.edu/academic-programs/academic-advising/tools/sheets-roadmaps/index.shtml" target="_blank" class="curriculum-btn">
+          <a href="https://www.cpp.edu/academic-programs/academic-advising/tools/sheets-roadmaps/index.shtml" target="_blank" rel="noopener noreferrer" class="curriculum-btn">
             <span>Curriculum Sheets & Roadmaps</span>
             <span class="arrow">›</span>
           </a>
 
-          <a href="https://catalog.cpp.edu/" target="_blank" class="catalog-btn">
+          <a href="https://catalog.cpp.edu/" target="_blank" rel="noopener noreferrer" class="catalog-btn">
             <span>University Catalog</span>
             <span class="arrow">›</span>
           </a>
         </section>
 
-        <!-- CHECKLIST -->
         <section class="main2 checklist-section">
           <h1 class="page-title">Course Checklist</h1>
 
           <div class="twoCols">
-            <div class="stack">
-              <section class="card">
+            <div class="stack" aria-label="All checklists">
+              <section class="card" aria-label="Major required checklist">
                 <div class="cardTitle">
                   <h2>Major Required</h2>
                   <small>71 units</small>
                 </div>
-                <div class="checklist" id="majorRequiredList"></div>
+                <div class="checklist" id="majorRequiredList" aria-label="Major required list"></div>
               </section>
 
-              <section class="card">
+              <section class="card" aria-label="Major electives checklist">
                 <div class="cardTitle">
                   <h2>Major Electives</h2>
                   <small>21 units</small>
                 </div>
-                <div class="meta" id="electiveRules"></div>
-                <div class="checklist" id="majorElectivesList"></div>
+                <div class="meta" id="electiveRules" aria-label="Elective rules summary"></div>
+                <div class="checklist" id="majorElectivesList" aria-label="Major electives list"></div>
               </section>
 
-              <section class="card">
+              <section class="card" aria-label="General Education checklist">
                 <div class="cardTitle">
                   <h2>General Education</h2>
                   <small>43 units</small>
                 </div>
-                <div class="checklist" id="geChecklist"></div>
+                <div class="checklist" id="geChecklist" aria-label="General education requirements list"></div>
                 <div class="meta" style="margin-top:10px;">
                   <span>
                     Approved courses list:
-                    <a class="link" href="https://catalog.cpp.edu" target="_blank">catalog.cpp.edu</a>
+                    <a class="link" href="https://catalog.cpp.edu" target="_blank" rel="noreferrer">catalog.cpp.edu</a>
                   </span>
                 </div>
               </section>
             </div>
 
             <div class="stack">
-              <section class="card">
+              <section class="card" aria-label="Major progress summary">
                 <div class="cardTitle">
                   <h2>Major progress</h2>
                   <small>Auto-updates</small>
                 </div>
 
-                <div class="progressRow">
-                  <div class="bar">
+                <div class="progressRow" aria-label="Major requirements progress">
+                  <div class="bar" aria-hidden="true">
                     <span id="majorBarFill2"></span>
                   </div>
                   <div class="pct" id="majorPct2">0%</div>
                 </div>
 
-                <div class="meta">
+                <div class="meta" aria-label="Major progress details">
                   <span id="majorCompleted2">—</span>
                   <span id="majorUnitsLeft2">—</span>
                 </div>
               </section>
 
-              <section class="card">
+              <section class="card" aria-label="GE progress summary">
                 <div class="cardTitle">
                   <h2>GE progress</h2>
                   <small>Auto + manual</small>
                 </div>
 
-                <div class="progressRow">
-                  <div class="bar">
+                <div class="progressRow" aria-label="GE requirements progress">
+                  <div class="bar" aria-hidden="true">
                     <span id="geBarFill2"></span>
                   </div>
                   <div class="pct" id="gePct2">0%</div>
                 </div>
 
-                <div class="meta">
+                <div class="meta" aria-label="GE progress details">
                   <span id="geCompleted2">—</span>
                   <span id="geUnitsLeft2">—</span>
                 </div>
@@ -211,6 +207,5 @@
   <div class="overlay" id="overlay"></div>
 
   <script src="script.js"></script>
-
 </body>
 </html>
