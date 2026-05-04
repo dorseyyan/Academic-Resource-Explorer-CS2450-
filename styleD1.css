@@ -584,7 +584,13 @@ a {
   .twoCols { grid-template-columns: 1.1fr 0.9fr; }
 }
 
-.stack { display: grid; gap: 16px; }
+.stack { display: grid; gap: 16px; align-content: start; }
+
+.twoCols > .stack:last-child {
+  position: sticky;
+  top: calc(var(--header-height) + 16px);
+  align-self: start;
+}
 
 /* ── Footer link ───────────────────────────────────── */
 .footerLink {
@@ -627,6 +633,75 @@ a {
   .sidebar.open { left: 0; }
 
   .main { padding: 20px 16px; }
+}
+
+/* ── Accordion cards ───────────────────────────────── */
+.accordion-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.accordion-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 10px;
+  text-align: left;
+}
+
+.accordion-toggle .cardTitle {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.accordion-arrow {
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #1f6b47;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.accordion-toggle[aria-expanded="true"] .accordion-arrow {
+  transform: rotate(90deg);
+}
+
+.accordion-body {
+  padding: 0 20px 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.accordion-body[hidden] { display: none; }
+
+/* ── Compact progress cards ────────────────────────── */
+.progress-compact {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-compact .bar {
+  height: 8px;
+  flex: unset;
+}
+
+.progress-compact-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.progress-compact-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f6b47;
 }
 
 /* ── Accessibility ─────────────────────────────────── */
