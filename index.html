@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Academic Resource Explorer - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <span class="header-subtitle">Cal Poly Pomona</span>
+    </div>
+
+    <div class="header-title">
+      Academic Resource Explorer
+    </div>
+
+    <div class="header-right"></div>
+  </header>
+
+  <div class="website">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+
+        <div class="menu-wrap" id="menuWrap">
+          <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-item">
+              <span class="dropdown-icon">⌂</span>
+              <span>Home</span>
+            </a>
+
+            <a href="profile.html" class="dropdown-item">
+              <span class="dropdown-icon">👤</span>
+              <span>Profile</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <main class="main">
+
+      <section class="home-hero">
+        <div class="home-hero-text">
+          <p class="home-label">Academic Support</p>
+
+          <h1>Find the academic resources you need faster.</h1>
+
+          <p class="home-description">
+            Academic Resource Explorer helps students access tutoring, CPT information,
+            degree progress tools, and other academic resources in one place.
+          </p>
+
+          <div class="search-area">
+            <input type="text" placeholder="Search for tutoring, CPT, or degree progress">
+            <button class="search-btn">Search</button>
+          </div>
+        </div>
+
+        <div class="home-image-box">
+          <img src="images/cpp.jpg" alt="CPP campus image" class="home-image">
+        </div>
+      </section>
+
+      <section class="quick-section">
+        <div class="section-header">
+          <h2>Quick Access</h2>
+        </div>
+
+        <div class="quick-access-grid">
+
+          <a href="tutoring.html" class="home-quick-card">
+            <span class="quick-icon">📚</span>
+            <h3>Tutoring</h3>
+            <p>Find tutoring support and academic help.</p>
+          </a>
+
+          <a href="international.html" class="home-quick-card">
+            <span class="quick-icon">🌎</span>
+            <h3>Internship / CPT</h3>
+            <p>Find information about internships and CPT.</p>
+          </a>
+
+          <a href="degree.html" class="home-quick-card">
+            <span class="quick-icon">🎓</span>
+            <h3>Degree Progress Report</h3>
+            <p>Check degree requirements and academic progress.</p>
+          </a>
+
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    const menuWrap = document.getElementById("menuWrap");
+    const menuBtn = document.getElementById("menuBtn");
+
+    function toggleDropdown(event) {
+      event.stopPropagation();
+      const isOpen = menuWrap.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+
+    function closeDropdown() {
+      menuWrap.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+
+    menuBtn.addEventListener("click", toggleDropdown);
+
+    document.addEventListener("click", (event) => {
+      if (!menuWrap.contains(event.target)) {
+        closeDropdown();
+      }
+    });
+  </script>
+
+</body>
+</html>
