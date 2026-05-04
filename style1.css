@@ -104,24 +104,17 @@ a {
   width: 250px;
   background: var(--eggshell);
   border-right: 1px solid var(--line);
-  padding: 0 15px;
+  padding: 15px;
   position: sticky;
   top: var(--header-height);
   height: calc(100vh - var(--header-height));
   align-self: flex-start;
 }
 
-.sidebar-inner {
-  position: relative;
-  height: 100%;
-}
-
 /* ── Hamburger button ── */
 .menu-wrap {
-  position: sticky;
-  top: 10px;
+  position: relative;
   display: inline-block;
-  z-index: 50;
 }
 
 .menu-btn {
@@ -172,13 +165,12 @@ a {
   position: absolute;
   top: 55px;
   left: 0;
-  width: 220px;
-  background: #f7f7f6;
+  width: 200px;
+  background: #f5f3ee;
   border: 1px solid var(--line);
   border-radius: 16px;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
-  padding: 8px;
-  /* hidden by default */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 10px;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-6px);
@@ -195,31 +187,36 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 14px;
-  font-size: 1rem;
+  padding: 12px 14px;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--black);
-  transition: background 0.2s ease, color 0.2s ease, transform 0.18s ease;
+  color: var(--cpp-green);
+  border-radius: 10px;
+  transition: background 0.18s ease;
 }
 
 .dropdown-item:hover {
-  background: rgba(52, 51, 51, 0.071);
-  border-radius: 16px;
-  color: var(--cpp-green);
-  transform: translateX(2px);
+  background: rgba(0, 80, 48, 0.1);
+}
+
+/* "Home" highlighted row — add class="dropdown-item active" in HTML */
+.dropdown-item.active {
+  background: #dde8e2;
 }
 
 .dropdown-icon {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
-  background: #f4f1eb;
+  background: #eae6df;
   color: var(--cpp-green);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.85rem;
   flex-shrink: 0;
+  font-family: sans-serif;
+  font-style: normal;
 }
 
 /* ════════════════════════════
