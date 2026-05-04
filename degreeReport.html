@@ -6,7 +6,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+
+<body data-page="checklist">
+
   <header class="header">
     <div class="header-left">
       <img src="logo.png" alt="Cal Poly Pomona Logo" class="logo">
@@ -20,29 +22,17 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-inner">
         <div class="menu-wrap" id="menuWrap">
-          <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+          <button class="menu-btn" id="menuBtn">
             <span></span>
             <span></span>
             <span></span>
           </button>
 
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="#" class="dropdown-item">
-              <span class="dropdown-icon">🏠︎</span>
-              <span>Home</span>
-            </a>
-            <a href="#" class="dropdown-item">
-              <span class="dropdown-icon">🔎︎</span>
-              <span>Search</span>
-            </a>
-            <a href="#" class="dropdown-item">
-              <span class="dropdown-icon">ጸ</span>
-              <span>Profile</span>
-            </a>
-            <a href="#" class="dropdown-item">
-              <span class="dropdown-icon">➜]</span>
-              <span>Log out</span>
-            </a>
+            <a href="#" class="dropdown-item">Home</a>
+            <a href="#" class="dropdown-item">Search</a>
+            <a href="#" class="dropdown-item">Profile</a>
+            <a href="#" class="dropdown-item">Log out</a>
           </div>
         </div>
       </div>
@@ -50,6 +40,8 @@
 
     <main class="main">
       <section class="report-shell">
+
+        <!-- PROFILE (UNCHANGED) -->
         <section class="profile-card">
           <div class="profile-left">
             <div class="info-bubble">
@@ -80,6 +72,7 @@
           </div>
         </section>
 
+        <!-- PROGRESS (UNCHANGED) -->
         <section class="progress-grid">
           <article class="progress-card">
             <div class="section-header">
@@ -114,17 +107,103 @@
           </article>
         </section>
 
+        <!-- BUTTONS (UNCHANGED) -->
         <section class="curriculum-catalog-grid">
-        <a href="https://www.cpp.edu/academic-programs/academic-advising/tools/sheets-roadmaps/index.shtml" target="_blank" rel="noopener noreferrer" class="curriculum-btn">
-          <span>Curriculum Sheets & Roadmaps</span>
-          <span class="arrow">›</span>
-        </a>
+          <a href="https://www.cpp.edu/academic-programs/academic-advising/tools/sheets-roadmaps/index.shtml" target="_blank" class="curriculum-btn">
+            <span>Curriculum Sheets & Roadmaps</span>
+            <span class="arrow">›</span>
+          </a>
 
-        <a href="https://catalog.cpp.edu/" target="_blank" rel="noopener noreferrer" class="catalog-btn">
-          <span>University Catalog</span>
-          <span class="arrow">›</span>
-        </a>
+          <a href="https://catalog.cpp.edu/" target="_blank" class="catalog-btn">
+            <span>University Catalog</span>
+            <span class="arrow">›</span>
+          </a>
         </section>
+
+        <!-- CHECKLIST -->
+        <section class="main2 checklist-section">
+          <h1 class="page-title">Course Checklist</h1>
+
+          <div class="twoCols">
+            <div class="stack">
+              <section class="card">
+                <div class="cardTitle">
+                  <h2>Major Required</h2>
+                  <small>71 units</small>
+                </div>
+                <div class="checklist" id="majorRequiredList"></div>
+              </section>
+
+              <section class="card">
+                <div class="cardTitle">
+                  <h2>Major Electives</h2>
+                  <small>21 units</small>
+                </div>
+                <div class="meta" id="electiveRules"></div>
+                <div class="checklist" id="majorElectivesList"></div>
+              </section>
+
+              <section class="card">
+                <div class="cardTitle">
+                  <h2>General Education</h2>
+                  <small>43 units</small>
+                </div>
+                <div class="checklist" id="geChecklist"></div>
+                <div class="meta" style="margin-top:10px;">
+                  <span>
+                    Approved courses list:
+                    <a class="link" href="https://catalog.cpp.edu" target="_blank">catalog.cpp.edu</a>
+                  </span>
+                </div>
+              </section>
+            </div>
+
+            <div class="stack">
+              <section class="card">
+                <div class="cardTitle">
+                  <h2>Major progress</h2>
+                  <small>Auto-updates</small>
+                </div>
+
+                <div class="progressRow">
+                  <div class="bar">
+                    <span id="majorBarFill2"></span>
+                  </div>
+                  <div class="pct" id="majorPct2">0%</div>
+                </div>
+
+                <div class="meta">
+                  <span id="majorCompleted2">—</span>
+                  <span id="majorUnitsLeft2">—</span>
+                </div>
+              </section>
+
+              <section class="card">
+                <div class="cardTitle">
+                  <h2>GE progress</h2>
+                  <small>Auto + manual</small>
+                </div>
+
+                <div class="progressRow">
+                  <div class="bar">
+                    <span id="geBarFill2"></span>
+                  </div>
+                  <div class="pct" id="gePct2">0%</div>
+                </div>
+
+                <div class="meta">
+                  <span id="geCompleted2">—</span>
+                  <span id="geUnitsLeft2">—</span>
+                </div>
+              </section>
+
+              <div class="footerLink">
+                <a class="link" href="./degreeReport.html">← Back to report</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </section>
     </main>
   </div>
@@ -132,5 +211,6 @@
   <div class="overlay" id="overlay"></div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
