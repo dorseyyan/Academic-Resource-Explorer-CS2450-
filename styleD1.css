@@ -1,0 +1,727 @@
+:root {
+  /*primary colors*/
+  --cpp-green: #005030; /*pairs: eggshell, white, gold, avocado, black, poly gradient*/
+  --cpp-gold: #FFB81C; /*pairs: black, cpp green*/
+ 
+  /*secondary colors*/
+  --avocado: #A4D65E; /*pairs: black, cpp green*/
+  --eggshell: #F2EEE8; /*pairs: black, cpp green*/
+  --white: #FFFFFF; /*pairs: cpp green, black*/
+  --black: #2d2d2d; /*pairs: gold, avocado, eggshell, white, poly gradient*/
+  --poly-gradient: linear-gradient(#FFB81C, #A4D65E); /*pairs: black, cpp green*/
+
+  /*other*/
+  --line: #ece8e1;
+  --line-soft: #f1eee8;
+  --header-height: 64px;
+  --radius: 8px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  background: linear-gradient(90deg, #00843d 0%, #014865 100%);
+  color: white;
+  padding: 0 20px;
+  height: var(--header-height);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.header-subtitle {
+  font-size: 0.85rem; 
+  font-weight: 600;
+}
+
+.header-title {
+  text-align: center;  
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.header-right {
+  /* empty but needed for symmetry */
+}
+
+/*reset applied to all elements ensuring consistent sizing by removing default browser spacing*/
+* {
+  box-sizing: border-box; /*ensures that padding resizes layouts rather than breaking them*/
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f7f6f2;
+  color: var(--black);
+}
+
+/*modifies all links*/
+a {
+  text-decoration: none; /*removes underline from link*/
+  color: inherit; /*forces it to use text color of parent container*/
+}
+
+.website {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  position: relative;
+}
+
+.sidebar {
+  width: 250px;
+  background: var(--eggshell);
+  border-right: 1px solid var(--line);
+  padding: 0 15px;
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  align-self: flex-start;
+}
+
+.sidebar-inner {
+  position: relative;
+  height: 100%;
+}
+
+.menu-wrap {
+  position: sticky;
+  top: 10px;
+  display: inline-block;
+  z-index: 50;
+}
+
+.menu-btn {
+  width: 52px;
+  height: 52px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease; /*animation when hovering or clicking*/
+}
+
+.menu-btn:active {
+  transform: scale(0.98); /*button shrinks a bit when clicked*/
+}
+
+.menu-btn span {
+  display: block; /*creates shape for the 3 lines in dropdown menu*/
+  width: 28px;
+  height: 4px;
+  background: var(--black);
+  border-radius: 999px;
+  transition: transform 0.28s ease, opacity 0.2s ease;
+  transform-origin: center; /*lines rotation from their center*/
+}
+
+/*creates one of the X lines*/
+.menu-wrap.open .menu-btn span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+/*disappears*/
+.menu-wrap.open .menu-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+/*creates other X line*/
+.menu-wrap.open .menu-btn span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 220px;
+  background: #f7f7f6;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+  padding: 8px;
+  /*dropdown menu hidden state*/
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  /*smooth animation when appearing and disappearing*/
+  transition: opacity 0.22s ease, transform 0.24s ease;
+}
+
+.menu-wrap.open .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+
+  font-size: 1rem; /*scales with modification of default browser settings. Based on the HTML element's font size*/
+  font-weight: 600;
+  color: var(--black);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.18s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(52, 51, 51, 0.071);
+  border-radius: 16px;
+  color: var(--cpp-green);
+  transform: translateX(2px);
+}
+
+.dropdown-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #f4f1eb;
+  color: var(--cpp-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.main {
+  flex: 1; /*fills in any remaining space*/
+  padding: 32px 36px; 
+}
+
+.profile-card,
+.progress-card,
+.catalog-btn, 
+.curriculum-btn {
+  display: flex;         
+  width: 100%;            
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cpp-green);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1px 0.8fr; /*creates 3 columns*/
+  gap: 20px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.profile-left {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /*creates 2 equal columns*/
+  gap: 10px;
+}
+
+.info-bubble {
+  background: #fdfcf9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.bubble-label {
+  font-size: 0.78rem;
+  color: #5e5e5e;
+  margin-bottom: 6px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.bubble-value {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #1d1d1d;
+}
+
+.divider {
+  width: 1px;
+  background: var(--line);
+}
+
+.profile-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-bubble {
+  width: 100%;
+  background: #fdfcf9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.status-label {
+  color: #2d7a55;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.status-value {
+  font-size: 0.92rem;
+  color: var(--black);
+  line-height: 1.4;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.progress-card {
+  padding: 20px;
+  gap: 12px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  color: #1f6b47;
+  font-size: 1.18rem;
+  font-weight: 700;
+}
+
+.percent-pill {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #356f53;
+  background: #f6f4ef;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 9px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 16px;
+  background: #e6e4df;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #006b3f;
+  border-radius: 999px;
+}
+
+.progress-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.detail-pill {
+  background: #fbfaf7;
+  border: 1px solid var(--line);
+  color: #3c3c3c;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.curriculum-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.curriculum-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1f6b47;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.curriculum-btn:hover {
+  transform: translateY(-2px);
+  color: var(--cpp-gold);
+}
+
+.catalog-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1f6b47;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.catalog-btn:hover {
+  transform: translateY(-2px);
+  color: var(--cpp-gold);
+}
+
+.arrow {
+  font-size: 3rem;
+  line-height: 1;
+  color: #1f6b47;
+}
+
+.catalog-btn:hover .arrow,
+.curriculum-btn:hover .arrow {
+  color: var(--cpp-gold);
+}
+
+.main2 {
+  padding: 0;
+}
+
+.checklist-section {
+  width: 100%;
+  margin-top: 32px;
+}
+
+.page-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--cpp-green);
+  margin-bottom: 20px;
+  letter-spacing: .2px;
+}
+
+/* ── Cards ─────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.02);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.cardTitle h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f6b47;
+  letter-spacing: .1px;
+}
+
+.cardTitle small {
+  color: #5e5e5e;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+/* ── Progress bar ──────────────────────────────────── */
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.bar {
+  flex: 1;
+  height: 16px;
+  background: #e6e4df;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: #006b3f;
+  border-radius: 999px;
+  transition: width .4s ease;
+}
+
+.pct {
+  min-width: 46px;
+  font-weight: 800;
+  color: #356f53;
+  background: #f6f4ef;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 0.88rem;
+  text-align: right;
+}
+
+/* ── Meta pills ────────────────────────────────────── */
+.meta {
+  margin-top: 10px;
+  color: rgba(7,62,40,.86);
+  font-weight: 650;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.meta span {
+  background: #fbfaf7;
+  border: 1px solid var(--line);
+  color: #3c3c3c;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ── Divider ───────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 14px 0;
+  border-radius: 999px;
+}
+
+/* ── Checklist items ───────────────────────────────── */
+.checklist {
+  margin-top: 8px;
+  display: grid;
+  gap: 8px;
+}
+
+.checkItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #fdfcf9;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.checkItem:hover { background: #f9f8f4; border-color: #d4d0c8; }
+
+.checkItem input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--cpp-green);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.checkItem label {
+  flex: 1;
+  font-weight: 600;
+  color: #191433;
+  font-size: 0.9rem;
+  letter-spacing: .05px;
+  cursor: pointer;
+}
+
+/* ── Pill badge (units) ────────────────────────────── */
+.pill {
+  font-weight: 700;
+  color: #356f53;
+  background: #f6f4ef;
+  border: 1px solid var(--line);
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+/* ── Two-column layout ─────────────────────────────── */
+.twoCols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 960px) {
+  .twoCols { grid-template-columns: 1.1fr 0.9fr; }
+}
+
+.stack { display: grid; gap: 16px; align-content: start; }
+
+.twoCols > .stack:last-child {
+  position: sticky;
+  top: calc(var(--header-height) + 16px);
+  align-self: start;
+}
+
+/* ── Footer link ───────────────────────────────────── */
+.footerLink {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.link {
+  color: #1f6b47;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.link:hover { text-decoration: underline; }
+
+/* ── Overlay (mobile sidebar) ──────────────────────── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  z-index: 900;
+}
+
+.overlay.show { display: block; }
+
+/* ── Mobile sidebar ────────────────────────────────── */
+@media (max-width: 820px) {
+  .sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: -260px;
+    height: calc(100vh - var(--header-height));
+    z-index: 950;
+    transition: left .28s ease;
+  }
+
+  .sidebar.open { left: 0; }
+
+  .main { padding: 20px 16px; }
+}
+
+/* ── Accordion cards ───────────────────────────────── */
+.accordion-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.accordion-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 10px;
+  text-align: left;
+}
+
+.accordion-toggle .cardTitle {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.accordion-arrow {
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #1f6b47;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.accordion-toggle[aria-expanded="true"] .accordion-arrow {
+  transform: rotate(90deg);
+}
+
+.accordion-body {
+  padding: 0 20px 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.accordion-body[hidden] { display: none; }
+
+/* ── Compact progress cards ────────────────────────── */
+.progress-compact {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-compact .bar {
+  height: 8px;
+  flex: unset;
+}
+
+.progress-compact-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.progress-compact-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f6b47;
+}
+
+/* ── Accessibility ─────────────────────────────────── */
+.srOnly {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* ── Select (elective units) ───────────────────────── */
+select {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cpp-green);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 3px 6px;
+  background: #fdfcf9;
+  cursor: pointer;
+}
